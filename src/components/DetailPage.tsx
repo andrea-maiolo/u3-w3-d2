@@ -32,7 +32,7 @@ const DetailPage = () => {
     <>
       {currentArticle && (
         <Card className="h-75">
-          <Card.Img variant="top" src={currentArticle.image_url} />
+          <Card.Img variant="top" src={currentArticle.image_url} className="img-fluid" />
           <Card.Body>
             <Card.Title>{currentArticle.title}</Card.Title>
             <Card.Text>{currentArticle.authors[0].name}</Card.Text>

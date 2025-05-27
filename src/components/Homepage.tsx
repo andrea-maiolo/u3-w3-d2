@@ -59,7 +59,7 @@ const Homepage = () => {
         <Container>
           <Row className="justify-content-center">
             <Col>
-              <h1>Ultimi articoli</h1>
+              <h1 className="text-white">Ultimi articoli</h1>
               <Row sm={12} md={4} lg={3}>
                 {articles.map((art) => {
                   return <SingleArticle key={art.id} art={art} />;

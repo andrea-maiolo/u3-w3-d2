@@ -14,8 +14,8 @@ const SingleArticle = (props: SingleArticleProp) => {
 
   return (
     <>
-      <Card className="h-75 mx-2">
-        <Card.Img variant="top" src={art.image_url} />
+      <Card className="h-25 text-bg-dark">
+        <Card.Img variant="top" src={art.image_url} className="img-fluid" />
         <Card.Body>
           <Card.Title className="text-truncate">{art.title}</Card.Title>
           <Card.Text>{art.authors[0].name}</Card.Text>
