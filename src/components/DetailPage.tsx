@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import type { ArticleT } from "../interfaces/ArticleT";
 
@@ -37,6 +37,9 @@ const DetailPage = () => {
             <Card.Title>{currentArticle.title}</Card.Title>
             <Card.Text>{currentArticle.authors[0].name}</Card.Text>
             <Card.Text>{currentArticle.summary}</Card.Text>
+            <Button variant="success" target="_blank" href={currentArticle.url}>
+              Visit link
+            </Button>
           </Card.Body>
         </Card>
       )}

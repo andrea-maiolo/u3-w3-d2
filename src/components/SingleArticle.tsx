@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import type { ArticleT } from "../interfaces/ArticleT";
 import { Link } from "react-router-dom";
 
@@ -9,17 +9,27 @@ interface SingleArticleProp {
 const SingleArticle = (props: SingleArticleProp) => {
   const art = props.art;
   console.log(art);
+
+  const isoDate = art.updated_at;
+  const dateFromIsoDate = new Date(isoDate);
+  const dateToBeUsed = dateFromIsoDate.toLocaleDateString("it-IT", { year: "2-digit", month: "2-digit" });
+
   return (
     <>
-      <Card className="h-75">
+      <Card className="h-75 mx-2">
         <Card.Img variant="top" src={art.image_url} />
         <Card.Body>
-          <Card.Title>{art.title}</Card.Title>
+          <Card.Title className="text-truncate">{art.title}</Card.Title>
           <Card.Text>{art.authors[0].name}</Card.Text>
           <Card.Text className="text-truncate">{art.summary}</Card.Text>
+          <Card.Text>{art.news_site}</Card.Text>
+          <Card.Text>{dateToBeUsed}</Card.Text>
           <Link to={`/details/${art.id}`} className="btn btn-success">
-            Read the full article
+            Read the details of the article
           </Link>
+          <Button className="mt-3" target="_blank" href={art.url} variant="success">
+            Go to external article
+          </Button>
         </Card.Body>
       </Card>
     </>

@@ -13,8 +13,8 @@ const Homepage = () => {
       const response = await fetch("https://api.spaceflightnewsapi.net/v4/articles");
 
       if (!response.ok) {
-        throw new Error();
         setError("errore nella fetch sorry");
+        throw new Error();
       } else {
         const data = await response.json();
         console.log(data);
