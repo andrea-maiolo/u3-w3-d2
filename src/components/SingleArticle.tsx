@@ -10,9 +10,7 @@ const SingleArticle = (props: SingleArticleProp) => {
   const art = props.art;
   console.log(art);
 
-  const isoDate = art.updated_at;
-  const dateFromIsoDate = new Date(isoDate);
-  const dateToBeUsed = dateFromIsoDate.toLocaleDateString("it-IT", { year: "2-digit", month: "2-digit" });
+  const myDate = new Date(art.updated_at).toLocaleDateString("it-IT", { year: "2-digit", month: "2-digit" });
 
   return (
     <>
@@ -23,7 +21,7 @@ const SingleArticle = (props: SingleArticleProp) => {
           <Card.Text>{art.authors[0].name}</Card.Text>
           <Card.Text className="text-truncate">{art.summary}</Card.Text>
           <Card.Text>{art.news_site}</Card.Text>
-          <Card.Text>{dateToBeUsed}</Card.Text>
+          <Card.Text>{myDate}</Card.Text>
           <Link to={`/details/${art.id}`} className="btn btn-success">
             Read the details of the article
           </Link>
