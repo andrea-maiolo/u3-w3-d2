@@ -17,7 +17,7 @@ const SingleArticle = (props: SingleArticleProp) => {
           <Card.Title>{art.title}</Card.Title>
           <Card.Text>{art.authors[0].name}</Card.Text>
           <Card.Text className="text-truncate">{art.summary}</Card.Text>
-          <Link to="/details/:id" className="btn btn-success">
+          <Link to={`/details/${art.id}`} className="btn btn-success">
             Read the full article
           </Link>
         </Card.Body>
